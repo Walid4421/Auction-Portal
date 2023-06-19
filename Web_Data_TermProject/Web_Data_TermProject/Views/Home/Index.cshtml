@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<html>
+<head>
+
+</head>
+
+<body>
+
+
+    <div class="jumbotron" style="background-image: url('../../images/28803.jpg'); background-size:100%; padding-left: 20px; padding-right: 20px; margin-bottom: 1%; text-align: center ; color:white ">
+        <h1 style="color:Highlight"><b>H & A Vehicle Auction</b></h1><br />
+        <p class="lead"><b>Nearly 200,000 Cars, Trucks, SUVs, and More For Sale</b></p>
+        <p>We have something for everyone- used casr buyers, dismantlers, dealer, body shops, and individuals.</p>
+        <p class="lead"><b>A better Way to Buy</b></p>
+        <p>Buy Your next car from the comfort of your own home. Win your car at an online auction.</p>
+        <p class="lead"><b>One of the best Auction Portal</b></p>
+        <p>H&A is one of the best Auction portals in featuring used, wholesale and salvage vehicles.</p>
+        <p><a href="@Url.Action("Register", "Account")" class="btn btn-primary btn-lg ">Register &raquo;</a></p>
+    </div>
+
+
+
+    <div class="row" style="margin-left: 20%; margin-right: 20%; margin-top: 5%;">
+        <div class="float-container" style="text-align:center">
+
+            <div class="float-child">
+
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+
+                            <h2>Get To Know Us</h2>
+                            <p>
+                                Learn about us on how we got here and what our aims are and what awaits you if you become part of our family.
+                            </p>
+
+                        </div>
+                        <div class="flip-box-back">
+                            <br /><br /><br />
+                            <p><a class="btn btn-default" href="@Url.Action("About", "Home")">About Us &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="float-child">
+
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+
+                            <h2>Contact Us</h2>
+                            <p>Feel free to contact us if you have any question regarding our services or our Auctions</p>
+
+
+                        </div>
+                        <div class="flip-box-back">
+                            <br /><br /><br />
+                            <p><a class="btn btn-default" href="@Url.Action("Contact", "Home")">Contact Us &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="float-child">
+
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+
+                            <h2>Auctions</h2>
+                            <p>You can Easily find many car to pick from so why not check what is available</p>
+
+                        </div>
+                        <div class="flip-box-back">
+                            <br /><br /><br />
+                            <p><a class="btn btn-default" href="@Url.Action("Todays_Auctions", "Auctions")">Go to Auctions &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="float-child">
+
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <div class="jumbotron" style="background-image: url('../../images/cars-dark-background-glowing-rear-angle-view-1920x1080-89337.jpg'); background-size: 100%; padding-left: 20px; padding-right: 20px; margin-bottom: 1%; text-align: center; color: white ">
+        
+        <div class="container" style=" width: 1170px;">
+
+            <h2 style="text-align:center">What We Do</h2>
+            <p>H&A specializes in the resale and remarketing of used and wholesale  title vehicles for a variety of Sellers, including insurance companies, rental car companies, local municipalities, financial institutions and charities. H&A’s extensive inventory is housed on more than 8,000 acres of land and includes an array of vehicles to ensure Members can find what they’re looking for from classics and exotics, early and late model cars and trucks, to industrial vehicles and more. Copart sells over two million vehicles each year, so there’s something for everyone: dismantlers, body shops, salvage buyers, dealers and individual consumers.</p>
+
+            <h2 style="text-align:center">What We Aim For</h2>
+            <p>At H&A we are passionate about making a positive difference every day through charity, disaster relief, transparency and compliance, economic growth and environmental responsibility. We’re proud to give back to our wonderful communities and serve hundreds of thousands of Members every day, all while maintaining a solid reputation as a growing, profitable business year after year. H&A’s success has earned the company a place on the S&P 500 and recognition on Deloitte’s “The Exceptional 100 List of Top Performing Turkey Companies,” in addition to many other awards throughout the years.</p>
+
+
+
+        </div>
+       
+
+    </div>
+
+    <div style="justify-content: center; display: flex;">
+        <img src="~/images/Screenshot (41).png" /><br />
+    </div>
+    <div style="text-align: center; position: relative; width: 100%;">
+        <br /><br />
+        <h3 style="
+            font-size: 28px;
+            color: #0d5db8 !important;
+            margin: 24px auto 10px auto;
+          ">
+            Become a H&A Member
+        </h3><br />
+
+        <p style="
+            color: #687486;
+            font-size: 18px !important;
+            max-width: 700px;
+            margin: auto;
+          ">Register for a H&A Account to start bidding. Once you've completed your registration and your documents are approved, you'll be able to bid on Copart's selection of 2.000+ vehicles.*</p>
+        <br />
+        <p><a href="@Url.Action("Register", "Account")" class="btn btn-primary btn-lg ">Register &raquo;</a></p>
+    </div>
+
+</body>
+</html>

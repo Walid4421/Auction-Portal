@@ -1,0 +1,141 @@
+﻿@model Web_Data_TermProject.Models.Contact
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+
+<body style="background-image: url('../../images/bmw-m4-competition-black-cars-2020-5k-1920x1080-3118.jpg');background-size:cover;background-position:center">
+    <div class="loginp" , style="margin-left: 10%; margin-right: 10%; margin-bottom: 20%;  color:white;text-align:center">
+        <fieldset>
+            <div class="container">
+                <h2 class="page-title">Contact</h2>
+                <small>Contact us if u have any questions </small>
+            </div>
+            <br /><br /><br />
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.5516791591936!2d28.829946715728695!3d40.99129682841797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa35ee1fdc1b1%3A0x658a212e6b4359b5!2sIstanbul%20K%C3%BClt%C3%BCr%20University!5e0!3m2!1sen!2str!4v1639727564304!5m2!1sen!2str" width="1500" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            <br /><br />
+
+                  <div class="row">
+                      <div class="box_x1">
+                          <div class="boxed-content">
+                              <h2 class="section-title">Address</h2>
+                              <address>
+                                  <p>Company Name INC.</p>
+                                  <p>423 Avenue Street, Chicago, IL 60610</p>
+                              </address>
+                          </div>
+                      </div>
+                      <div class="box_x1">
+                          <div class="boxed-content">
+                              <h2 class="section-title">Telephone</h2>
+                              <p><strong>Office:</strong> +1 800 321 431</p>
+                              <p><strong>Support:</strong> +1 800 903 412</p>
+                          </div>
+                      </div>
+                      <div class="box_x1">
+                          <div class="boxed-content">
+                              <h2 class="section-title">Email</h2>
+                              <p><strong>Office:</strong> <a href="mailto:office@companyname.com">office@companyname.com</a></p>
+                              <p><strong>Support:</strong> <a href="mailto:support@companyname.com">support@companyname.com</a></p>
+                          </div>
+                      </div>
+                  </div>
+
+            
+
+                  <div class="boxed-content" style="text-align:center ;padding-left:40%">
+                      @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+                      {
+
+                          <table>
+                              <tr>
+                                  <td>
+                                      @Html.LabelFor(model => model.Name, new { @style = "  margin-right:20px;" })
+                                  </td>
+                                  <td>
+                                      @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @style = "margin-right:10px;margin-top:10px;" })
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td></td>
+                                  <td>
+                                      @Html.ValidationMessageFor(model => model.Name, null, new { @class = "text text-danger" })
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      @Html.LabelFor(model => model.email, new { @style = "  margin-right:20px;" })
+                                  </td>
+                                  <td>
+                                      @Html.TextBoxFor(model => model.email, new { @class = "form-control", @style = "margin-right:10px;margin-top:10px;" })
+                                  </td>
+                              </tr>
+
+                              <tr>
+                                  <td></td>
+                                  <td>
+                                      @Html.ValidationMessageFor(model => model.email, null, new { @class = "text text-danger" })
+                                  </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                      @Html.LabelFor(model => model.message, new { @style = "   margin-right:20px;" })
+                                  </td>
+                                  <td>
+                                      @Html.TextBoxFor(model => model.message, new { @class = "form-control", @style = "margin-right:10px;margin-top:10px;" })
+                                  </td>
+                              </tr>
+
+                              <tr>
+                                  <td></td>
+                                  <td>
+                                      @Html.ValidationMessageFor(model => model.message, null, new { @class = "text text-danger" })
+                                  </td>
+                              </tr>
+
+                              <tr>
+
+                                  <td>
+                                  </td>
+                                  <td>
+                                      <table>
+                                          <tr>
+                                              <td style="color: black; ">
+                                                  <input  type="submit" value="Submit" />
+                                              </td>
+                                          </tr>
+
+                                      </table>
+                                  </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                      @Html.ValidationMessage("Error", null, new { @class = "text text-danger" })
+                                  </td>
+                              </tr>
+
+                          </table>
+
+                      }
+
+                  </div> 
+                      <div style="text-align: center; float:right ;position: relative; width: 100%;">
+                          <br /><br />
+                          <h3 style=" font-size: 28px; color: white;margin: 24px auto 10px auto;">
+                              Become a H&A Member
+                          </h3><br />
+
+                          <p style="color: White;font-size: 18px;max-width: 700px;margin: auto;">Register for a H&A Account to start bidding. Once you've completed your registration and your documents are approved, you'll be able to bid on Copart's selection of 2.000+ vehicles.*</p>
+                          <br />
+                          <p><a href="@Url.Action("Register", "Account")" class="btn btn-primary btn-lg ">Register &raquo;</a></p>
+                      </div>
+                  
+
+        </fieldset>
+    </div>
+</body>

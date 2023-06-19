@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Web_Data_TermProject.Models.getinfo_Result>
+
+@{
+    ViewBag.Title = "Admins";
+}
+
+<h2 style="text-align:center">Admin</h2>
+<br />
+<br />
+<br />
+<body style="background-image: url('../../images/website-background-images-tile-wallpaper-photo.jpg'); ">
+    @if (Session["Email"] != null && (string)Session["Email"] == "Admin")
+    {
+        <div style="padding-left:10%;padding-right:10%">
+            <div class="row">
+                <div class="side">
+                    <h2>About Me</h2>
+
+                    <table class="table">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    Email/Username: @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>
+                                    Name: @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>
+                                    Surname: @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>
+                                    Phone number: @Html.DisplayFor(modelItem => item.Phoneno)
+                                </td>
+
+
+
+                            </tr>
+                        }
+
+                    </table>
+
+
+                </div>
+                <div class="main">
+                    <br /><br /><br />
+                    <p><a href="@Url.Action("Usersregistered", "Admins")" class="btn btn-primary btn-lg ">Users Registered &raquo;</a></p>
+
+                    <br /><br /><br /> <br />
+                    <p><a href="@Url.Action("Contactvie", "Admins")" class="btn btn-primary btn-lg ">Messages &raquo;</a></p>
+
+                    <br /><br /><br /><br />
+                    <p><a href="@Url.Action("Add", "Add")" class="btn btn-primary btn-lg ">Add new Auction &raquo;</a></p>
+
+                    <br /><br /><br /><br />
+                    <p><a href="@Url.Action("Todays_Auctions", "Auctions")" class="btn btn-primary btn-lg ">Auctions &raquo;</a></p>
+
+                </div>
+            </div>
+        </div>
+
+        <div>
+
+
+        </div>
+
+        <div style="text-align: center">
+
+        </div>
+
+    }
+</body>
+
+
+
+
+

@@ -1,0 +1,761 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="termprjModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Reserve">
+          <Key>
+            <PropertyRef Name="Reserveid" />
+          </Key>
+          <Property Name="Reserveid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SurName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Carmake" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Carmodel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CarYear" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bid">
+          <Key>
+            <PropertyRef Name="Auctionid" />
+          </Key>
+          <Property Name="Auctionid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'termprj.dbo.message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="Usern" />
+            <PropertyRef Name="message" />
+          </Key>
+          <Property Name="Usern" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="message" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Auction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuctionName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Auction_end" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="itemInfo">
+          <Key>
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="itemid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemMake" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Itemyear" Type="int" Nullable="false" />
+          <Property Name="ItemType" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="item_img" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="WinRecord">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="Auctionname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="messageid" />
+          </Key>
+          <Property Name="messageid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="message" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Last_Login_Date" Type="datetime" Nullable="false" />
+          <Property Name="Cars_Bought" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Userinfo">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phoneno" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'termprj.dbo.AccountsVie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AccountsVie">
+          <Key>
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Phoneno" />
+          </Key>
+          <Property Name="Userid" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phoneno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'termprj.dbo.Auction_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Auction_view">
+          <Key>
+            <PropertyRef Name="ItemName" />
+            <PropertyRef Name="ItemMake" />
+            <PropertyRef Name="Itemyear" />
+            <PropertyRef Name="ItemType" />
+          </Key>
+          <Property Name="id" Type="int" />
+          <Property Name="AuctionName" Type="varchar" MaxLength="50" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemMake" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Itemyear" Type="int" Nullable="false" />
+          <Property Name="ItemType" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="item_img" Type="varchar(max)" />
+          <Property Name="Auction_end" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'termprj.dbo.Reserv_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Reserv_view">
+          <Key>
+            <PropertyRef Name="Reserveid" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="SurName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Carmake" />
+            <PropertyRef Name="Carmodel" />
+            <PropertyRef Name="CarYear" />
+          </Key>
+          <Property Name="Reserveid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SurName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Carmake" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Carmodel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CarYear" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'termprj.User.User_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="User_View">
+          <Key>
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Phoneno" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="Auctionname" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phoneno" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="Bit_alter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Bid">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="add_win" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="ammount" Type="int" Mode="In" />
+          <Parameter Name="AuctionName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="del_auc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="del_bid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="del_items" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="del_mess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mess" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="edit_auction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="make" Type="varchar" Mode="In" />
+          <Parameter Name="type" Type="char" Mode="In" />
+          <Parameter Name="model" Type="varchar" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="edit_auction1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="edit_userinfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="surname" Type="varchar" Mode="In" />
+          <Parameter Name="telephone" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="edit_userlogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getinfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getrecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="update_reccar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="update_reclog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="User">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_m" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="User">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Deleteinfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="User">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="termprjModelStoreContainer">
+          <EntitySet Name="Reserve" EntityType="Self.Reserve" Schema="Appointment" store:Type="Tables" />
+          <EntitySet Name="Bid" EntityType="Self.Bid" Schema="Bid" store:Type="Tables" />
+          <EntitySet Name="Auction" EntityType="Self.Auction" Schema="Item" store:Type="Tables" />
+          <EntitySet Name="itemInfo" EntityType="Self.itemInfo" Schema="Item" store:Type="Tables" />
+          <EntitySet Name="WinRecord" EntityType="Self.WinRecord" Schema="Item" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="User" store:Type="Tables" />
+          <EntitySet Name="Record" EntityType="Self.Record" Schema="User" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="User" store:Type="Tables" />
+          <EntitySet Name="Userinfo" EntityType="Self.Userinfo" Schema="User" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [message].[Usern] AS [Usern], 
+    [message].[message] AS [message]
+    FROM [dbo].[message] AS [message]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AccountsVie" EntityType="Self.AccountsVie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AccountsVie].[Userid] AS [Userid], 
+    [AccountsVie].[Email] AS [Email], 
+    [AccountsVie].[FirstName] AS [FirstName], 
+    [AccountsVie].[LastName] AS [LastName], 
+    [AccountsVie].[Phoneno] AS [Phoneno], 
+    [AccountsVie].[Password] AS [Password]
+    FROM [dbo].[AccountsVie] AS [AccountsVie]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Auction_view" EntityType="Self.Auction_view" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Auction_view].[id] AS [id], 
+    [Auction_view].[AuctionName] AS [AuctionName], 
+    [Auction_view].[Username] AS [Username], 
+    [Auction_view].[Price] AS [Price], 
+    [Auction_view].[ItemName] AS [ItemName], 
+    [Auction_view].[ItemMake] AS [ItemMake], 
+    [Auction_view].[Itemyear] AS [Itemyear], 
+    [Auction_view].[ItemType] AS [ItemType], 
+    [Auction_view].[item_img] AS [item_img], 
+    [Auction_view].[Auction_end] AS [Auction_end]
+    FROM [dbo].[Auction_view] AS [Auction_view]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Reserv_view" EntityType="Self.Reserv_view" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Reserv_view].[Reserveid] AS [Reserveid], 
+    [Reserv_view].[Name] AS [Name], 
+    [Reserv_view].[SurName] AS [SurName], 
+    [Reserv_view].[Email] AS [Email], 
+    [Reserv_view].[Carmake] AS [Carmake], 
+    [Reserv_view].[Carmodel] AS [Carmodel], 
+    [Reserv_view].[CarYear] AS [CarYear]
+    FROM [dbo].[Reserv_view] AS [Reserv_view]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="User_View" EntityType="Self.User_View" store:Type="Views" store:Schema="User">
+            <DefiningQuery>SELECT 
+    [User_View].[Username] AS [Username], 
+    [User_View].[Amount] AS [Amount], 
+    [User_View].[Auctionname] AS [Auctionname], 
+    [User_View].[FirstName] AS [FirstName], 
+    [User_View].[LastName] AS [LastName], 
+    [User_View].[Email] AS [Email], 
+    [User_View].[Phoneno] AS [Phoneno]
+    FROM [User].[User_View] AS [User_View]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="termprjModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Reserve">
+          <Key>
+            <PropertyRef Name="Reserveid" />
+          </Key>
+          <Property Name="Reserveid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SurName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Carmake" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Carmodel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CarYear" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bid">
+          <Key>
+            <PropertyRef Name="Auctionid" />
+          </Key>
+          <Property Name="Auctionid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Auction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuctionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Auction_end" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="itemInfo">
+          <Key>
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="itemid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemMake" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Itemyear" Type="Int32" Nullable="false" />
+          <Property Name="ItemType" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="item_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WinRecord">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="Auctionname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="messageid" />
+          </Key>
+          <Property Name="messageid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Last_Login_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Cars_Bought" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Userinfo">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phoneno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="Usern" />
+            <PropertyRef Name="message1" />
+          </Key>
+          <Property Name="Usern" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="message1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccountsVie">
+          <Key>
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Phoneno" />
+          </Key>
+          <Property Name="Userid" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phoneno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Auction_view">
+          <Key>
+            <PropertyRef Name="ItemName" />
+            <PropertyRef Name="ItemMake" />
+            <PropertyRef Name="Itemyear" />
+            <PropertyRef Name="ItemType" />
+          </Key>
+          <Property Name="id" Type="Int32" />
+          <Property Name="AuctionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemMake" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Itemyear" Type="Int32" Nullable="false" />
+          <Property Name="ItemType" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="item_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Auction_end" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Reserv_view">
+          <Key>
+            <PropertyRef Name="Reserveid" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="SurName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Carmake" />
+            <PropertyRef Name="Carmodel" />
+            <PropertyRef Name="CarYear" />
+          </Key>
+          <Property Name="Reserveid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SurName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Carmake" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Carmodel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CarYear" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="termprjEntities17" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Reserves" EntityType="Self.Reserve" />
+          <EntitySet Name="Bids" EntityType="Self.Bid" />
+          <EntitySet Name="Auctions" EntityType="Self.Auction" />
+          <EntitySet Name="itemInfoes" EntityType="Self.itemInfo" />
+          <EntitySet Name="WinRecords" EntityType="Self.WinRecord" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Records" EntityType="Self.Record" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Userinfoes" EntityType="Self.Userinfo" />
+          <EntitySet Name="messages" EntityType="Self.message" />
+          <EntitySet Name="AccountsVies" EntityType="Self.AccountsVie" />
+          <EntitySet Name="Auction_view" EntityType="Self.Auction_view" />
+          <EntitySet Name="Reserv_view" EntityType="Self.Reserv_view" />
+          <FunctionImport Name="Bit_alter">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="add_win">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="ammount" Mode="In" Type="Int32" />
+            <Parameter Name="AuctionName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="del_auc">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="del_bid">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="del_items">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="del_mess">
+          <Parameter Name="mess" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="edit_auction">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="make" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="model" Mode="In" Type="String" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="edit_auction1">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="edit_userinfo">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="surname" Mode="In" Type="String" />
+            <Parameter Name="telephone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="edit_userlogin">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getinfo" ReturnType="Collection(termprjModel.getinfo_Result)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getrecord">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="update_reccar">
+          <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="update_reclog">
+          <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Delete">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_m">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Deleteinfo">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="User_View" EntityType="termprjModel.User_View" />
+        </EntityContainer>
+        <ComplexType Name="getinfo_Result">
+          <Property Type="Int32" Name="Userid" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phoneno" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="User_View">
+          <Key>
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Phoneno" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="Auctionname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phoneno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="termprjModelStoreContainer" CdmEntityContainer="termprjEntities17">
+          <EntitySetMapping Name="Reserves">
+            <EntityTypeMapping TypeName="termprjModel.Reserve">
+              <MappingFragment StoreEntitySet="Reserve">
+                <ScalarProperty Name="Reserveid" ColumnName="Reserveid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Carmake" ColumnName="Carmake" />
+                <ScalarProperty Name="Carmodel" ColumnName="Carmodel" />
+                <ScalarProperty Name="CarYear" ColumnName="CarYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bids">
+            <EntityTypeMapping TypeName="termprjModel.Bid">
+              <MappingFragment StoreEntitySet="Bid">
+                <ScalarProperty Name="Auctionid" ColumnName="Auctionid" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Auctions">
+            <EntityTypeMapping TypeName="termprjModel.Auction">
+              <MappingFragment StoreEntitySet="Auction">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AuctionName" ColumnName="AuctionName" />
+                <ScalarProperty Name="Auction_end" ColumnName="Auction_end" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="itemInfoes">
+            <EntityTypeMapping TypeName="termprjModel.itemInfo">
+              <MappingFragment StoreEntitySet="itemInfo">
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemMake" ColumnName="ItemMake" />
+                <ScalarProperty Name="Itemyear" ColumnName="Itemyear" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="item_img" ColumnName="item_img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WinRecords">
+            <EntityTypeMapping TypeName="termprjModel.WinRecord">
+              <MappingFragment StoreEntitySet="WinRecord">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Auctionname" ColumnName="Auctionname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="termprjModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="messageid" ColumnName="messageid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="message" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Records">
+            <EntityTypeMapping TypeName="termprjModel.Record">
+              <MappingFragment StoreEntitySet="Record">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Last_Login_Date" ColumnName="Last_Login_Date" />
+                <ScalarProperty Name="Cars_Bought" ColumnName="Cars_Bought" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="termprjModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Userinfoes">
+            <EntityTypeMapping TypeName="termprjModel.Userinfo">
+              <MappingFragment StoreEntitySet="Userinfo">
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messages">
+            <EntityTypeMapping TypeName="termprjModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="Usern" ColumnName="Usern" />
+                <ScalarProperty Name="message1" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountsVies">
+            <EntityTypeMapping TypeName="termprjModel.AccountsVie">
+              <MappingFragment StoreEntitySet="AccountsVie">
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Auction_view">
+            <EntityTypeMapping TypeName="termprjModel.Auction_view">
+              <MappingFragment StoreEntitySet="Auction_view">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AuctionName" ColumnName="AuctionName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemMake" ColumnName="ItemMake" />
+                <ScalarProperty Name="Itemyear" ColumnName="Itemyear" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="item_img" ColumnName="item_img" />
+                <ScalarProperty Name="Auction_end" ColumnName="Auction_end" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reserv_view">
+            <EntityTypeMapping TypeName="termprjModel.Reserv_view">
+              <MappingFragment StoreEntitySet="Reserv_view">
+                <ScalarProperty Name="Reserveid" ColumnName="Reserveid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Carmake" ColumnName="Carmake" />
+                <ScalarProperty Name="Carmodel" ColumnName="Carmodel" />
+                <ScalarProperty Name="CarYear" ColumnName="CarYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Bit_alter" FunctionName="termprjModel.Store.Bit_alter" />
+          <FunctionImportMapping FunctionImportName="add_win" FunctionName="termprjModel.Store.add_win" />
+          <FunctionImportMapping FunctionImportName="del_auc" FunctionName="termprjModel.Store.del_auc" />
+          <FunctionImportMapping FunctionImportName="del_bid" FunctionName="termprjModel.Store.del_bid" />
+          <FunctionImportMapping FunctionImportName="del_items" FunctionName="termprjModel.Store.del_items" />
+          <FunctionImportMapping FunctionImportName="del_mess" FunctionName="termprjModel.Store.del_mess" />
+          <FunctionImportMapping FunctionImportName="edit_auction" FunctionName="termprjModel.Store.edit_auction" />
+          <FunctionImportMapping FunctionImportName="edit_auction1" FunctionName="termprjModel.Store.edit_auction1" />
+          <FunctionImportMapping FunctionImportName="edit_userinfo" FunctionName="termprjModel.Store.edit_userinfo" />
+          <FunctionImportMapping FunctionImportName="edit_userlogin" FunctionName="termprjModel.Store.edit_userlogin" />
+          <FunctionImportMapping FunctionImportName="getinfo" FunctionName="termprjModel.Store.getinfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="termprjModel.getinfo_Result">
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getrecord" FunctionName="termprjModel.Store.getrecord" />
+          <FunctionImportMapping FunctionImportName="update_reccar" FunctionName="termprjModel.Store.update_reccar" />
+          <FunctionImportMapping FunctionImportName="update_reclog" FunctionName="termprjModel.Store.update_reclog" />
+          <FunctionImportMapping FunctionImportName="Delete" FunctionName="termprjModel.Store.Delete" />
+          <FunctionImportMapping FunctionImportName="Delete_m" FunctionName="termprjModel.Store.Delete_m" />
+          <FunctionImportMapping FunctionImportName="Deleteinfo" FunctionName="termprjModel.Store.Deleteinfo" />
+          <EntitySetMapping Name="User_View">
+            <EntityTypeMapping TypeName="termprjModel.User_View">
+              <MappingFragment StoreEntitySet="User_View">
+                <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Auctionname" ColumnName="Auctionname" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

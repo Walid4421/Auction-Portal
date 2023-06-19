@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Web_Data_TermProject.Models.getinfo_Result>
+
+@{ 
+    ViewBag.Title = "UserPage";
+    Web_Data_TermProject.Models.termprjEntities17 db = new Web_Data_TermProject.Models.termprjEntities17();
+    string em = (string)Session["Email"];
+}
+
+<h2 style="text-align:center">UserPage</h2>
+<body>
+    <div class="row" style="padding:10%">
+        <div class="side">
+            <h2>About Me</h2>
+            <div>
+
+                <table class="table">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                Email/Username: @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                Name: @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                Surname: @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                Phone number: @Html.DisplayFor(modelItem => item.Phoneno)
+                            </td>
+
+
+
+
+                        </tr>
+                    }
+
+                </table>
+
+
+
+
+            </div>
+        </div>
+        <div class="main">
+            <table>
+                @foreach (var item in db.Records)
+                {
+                if (item.Username == em) { 
+                    <tr>
+
+                        <td>
+                           Last Login: @Html.DisplayFor(modelItem => item.Last_Login_Date)
+                        </td>
+                    </tr>
+
+
+                    }
+                }
+                </table>
+</div>
+        
+    </div>
+
+</body>

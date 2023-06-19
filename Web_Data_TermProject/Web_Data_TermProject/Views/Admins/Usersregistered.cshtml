@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Web_Data_TermProject.Models.AccountsVie>
+
+
+@{
+    ViewBag.Title = "Usersregistered";
+    int i = 0;
+}
+<body style="background-image: url('../../images/animated-lines-on-gray-background-element_4yuscfqex__F0000.png');">
+    <h2>USERS REGISTERED</h2>
+
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Userid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phoneno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+        @if ((string)Session["Email"] == "Admin")
+        {
+            foreach (var item in Model)
+            {
+
+                <tr>
+                    @if (i == 0)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Userid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phoneno)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Userid })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Userid })
+                        </td>
+                    }
+                </tr>
+
+            }
+        }
+
+    </table>
+
+    <a href="javascript:history.back()">Go Back</a>
+
+</body>
+
+

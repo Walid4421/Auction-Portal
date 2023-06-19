@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="termprjModelStoreContainer" CdmEntityContainer="termprjEntities17">
+    <EntitySetMapping Name="Reserves">
+      <EntityTypeMapping TypeName="termprjModel.Reserve">
+        <MappingFragment StoreEntitySet="Reserve">
+          <ScalarProperty Name="Reserveid" ColumnName="Reserveid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SurName" ColumnName="SurName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Carmake" ColumnName="Carmake" />
+          <ScalarProperty Name="Carmodel" ColumnName="Carmodel" />
+          <ScalarProperty Name="CarYear" ColumnName="CarYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bids">
+      <EntityTypeMapping TypeName="termprjModel.Bid">
+        <MappingFragment StoreEntitySet="Bid">
+          <ScalarProperty Name="Auctionid" ColumnName="Auctionid" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auctions">
+      <EntityTypeMapping TypeName="termprjModel.Auction">
+        <MappingFragment StoreEntitySet="Auction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AuctionName" ColumnName="AuctionName" />
+          <ScalarProperty Name="Auction_end" ColumnName="Auction_end" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="itemInfoes">
+      <EntityTypeMapping TypeName="termprjModel.itemInfo">
+        <MappingFragment StoreEntitySet="itemInfo">
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemMake" ColumnName="ItemMake" />
+          <ScalarProperty Name="Itemyear" ColumnName="Itemyear" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="item_img" ColumnName="item_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WinRecords">
+      <EntityTypeMapping TypeName="termprjModel.WinRecord">
+        <MappingFragment StoreEntitySet="WinRecord">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Auctionname" ColumnName="Auctionname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="termprjModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="messageid" ColumnName="messageid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Records">
+      <EntityTypeMapping TypeName="termprjModel.Record">
+        <MappingFragment StoreEntitySet="Record">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Last_Login_Date" ColumnName="Last_Login_Date" />
+          <ScalarProperty Name="Cars_Bought" ColumnName="Cars_Bought" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="termprjModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Userinfoes">
+      <EntityTypeMapping TypeName="termprjModel.Userinfo">
+        <MappingFragment StoreEntitySet="Userinfo">
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messages">
+      <EntityTypeMapping TypeName="termprjModel.message">
+        <MappingFragment StoreEntitySet="message">
+          <ScalarProperty Name="Usern" ColumnName="Usern" />
+          <ScalarProperty Name="message1" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountsVies">
+      <EntityTypeMapping TypeName="termprjModel.AccountsVie">
+        <MappingFragment StoreEntitySet="AccountsVie">
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auction_view">
+      <EntityTypeMapping TypeName="termprjModel.Auction_view">
+        <MappingFragment StoreEntitySet="Auction_view">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AuctionName" ColumnName="AuctionName" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemMake" ColumnName="ItemMake" />
+          <ScalarProperty Name="Itemyear" ColumnName="Itemyear" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="item_img" ColumnName="item_img" />
+          <ScalarProperty Name="Auction_end" ColumnName="Auction_end" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reserv_view">
+      <EntityTypeMapping TypeName="termprjModel.Reserv_view">
+        <MappingFragment StoreEntitySet="Reserv_view">
+          <ScalarProperty Name="Reserveid" ColumnName="Reserveid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SurName" ColumnName="SurName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Carmake" ColumnName="Carmake" />
+          <ScalarProperty Name="Carmodel" ColumnName="Carmodel" />
+          <ScalarProperty Name="CarYear" ColumnName="CarYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Bit_alter" FunctionName="termprjModel.Store.Bit_alter" />
+    <FunctionImportMapping FunctionImportName="add_win" FunctionName="termprjModel.Store.add_win" />
+    <FunctionImportMapping FunctionImportName="del_auc" FunctionName="termprjModel.Store.del_auc" />
+    <FunctionImportMapping FunctionImportName="del_bid" FunctionName="termprjModel.Store.del_bid" />
+    <FunctionImportMapping FunctionImportName="del_items" FunctionName="termprjModel.Store.del_items" />
+    <FunctionImportMapping FunctionImportName="del_mess" FunctionName="termprjModel.Store.del_mess" />
+    <FunctionImportMapping FunctionImportName="edit_auction" FunctionName="termprjModel.Store.edit_auction" />
+    <FunctionImportMapping FunctionImportName="edit_auction1" FunctionName="termprjModel.Store.edit_auction1" />
+    <FunctionImportMapping FunctionImportName="edit_userinfo" FunctionName="termprjModel.Store.edit_userinfo" />
+    <FunctionImportMapping FunctionImportName="edit_userlogin" FunctionName="termprjModel.Store.edit_userlogin" />
+    <FunctionImportMapping FunctionImportName="getinfo" FunctionName="termprjModel.Store.getinfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="termprjModel.getinfo_Result">
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getrecord" FunctionName="termprjModel.Store.getrecord" />
+    <FunctionImportMapping FunctionImportName="update_reccar" FunctionName="termprjModel.Store.update_reccar" />
+    <FunctionImportMapping FunctionImportName="update_reclog" FunctionName="termprjModel.Store.update_reclog" />
+    <FunctionImportMapping FunctionImportName="Delete" FunctionName="termprjModel.Store.Delete" />
+    <FunctionImportMapping FunctionImportName="Delete_m" FunctionName="termprjModel.Store.Delete_m" />
+    <FunctionImportMapping FunctionImportName="Deleteinfo" FunctionName="termprjModel.Store.Deleteinfo" />
+    <EntitySetMapping Name="User_View">
+      <EntityTypeMapping TypeName="termprjModel.User_View">
+        <MappingFragment StoreEntitySet="User_View">
+          <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Auctionname" ColumnName="Auctionname" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

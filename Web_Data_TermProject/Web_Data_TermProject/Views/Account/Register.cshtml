@@ -1,0 +1,142 @@
+﻿@model Web_Data_TermProject.Models2.Usermodel
+
+@{
+    ViewBag.Title = "Register";
+}
+<body style="background-image: url('../../images/bmw-m4-competition-black-cars-2020-5k-1920x1080-3118.jpg');">
+    <div class="loginp" , style="margin-left: 20%; margin-right: 50%; margin-bottom: 20%; margin-top: 10% ; color:white">
+        <fieldset>
+            <legend style="color:white">
+                User Registration
+
+            </legend>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+            {
+
+                <table>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.FirstName, new { @style = "  float:left; margin-right:20px;" })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @style = "float:left;margin-right:10px;margin-top:10px;" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "text text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.LastName, new { @style = "  float:left; margin-right:20px;" })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @style = "float:left;margin-right:10px;margin-top:10px;" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.LastName, null, new { @class = "text text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Email, new { @style = "  float:left; margin-right:20px;" })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @style = "float:left;margin-right:10px;margin-top:10px;" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Password, new { @style = "  float:left; margin-right:20px;" })
+                        </td>
+                        <td>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", @style = "float:left;margin-right:10px;margin-top:10px;", minlength = "8" })
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Con_Password, new { @style = "  float:left; margin-right:20px;" })
+                        </td>
+                        <td>
+                            @Html.PasswordFor(model => model.Con_Password, new { @class = "form-control", @style = "float:left;margin-right:10px;margin-top:10px;" })
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.PhoneNumber, new { @style = "  float:left; margin-right:20px;" })
+
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @style = "float:left;margin-right:10px;margin-top:10px;" })
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, null, new { @class = "text text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td style="color:black">
+                                        <input type="submit" value="Register" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br />
+                                        <input type="button" value="Login" onclick="location.href='@Url.Action("Login", "Account")' " style="color:black" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.ValidationMessage("Error", null, new { @class = "text text-danger" })
+                        </td>
+                    </tr>
+
+                </table>
+                
+            }
+
+        </fieldset>
+        </div>
+</body>

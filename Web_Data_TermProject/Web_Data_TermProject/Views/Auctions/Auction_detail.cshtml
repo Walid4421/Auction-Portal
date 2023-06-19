@@ -1,0 +1,66 @@
+﻿@model Web_Data_TermProject.Models.Auction_view
+
+@{
+    ViewBag.Title = "Auction_detail";
+    
+}
+<body style="background-image: url('../../images/animated-lines-on-gray-background-element_4yuscfqex__F0000.png');">
+    <div class="Auctionboxs">
+        <h2 style="text-align:center"><b>#AuctionLot : @Html.DisplayFor(model => model.id)</b></h2>
+        <hr />
+
+
+        <div class="clearfix" style="font-size:xx-large;text-align:center">
+            <img class="img2" src="@Url.Content(Model.item_img)" width="auto" height="500">
+
+            <b> @Html.DisplayFor(model => model.AuctionName) </b>
+            <br />
+
+
+            <b>Year:</b> @Html.DisplayFor(model => model.Itemyear)
+            <br />
+
+
+            <b>VehicleType:</b> @Html.DisplayFor(model => model.ItemType)
+            <br />
+            <br /><br />
+            <br />
+
+            <b>Current Bit: @Html.DisplayFor(model => model.Price) $</b>
+            <br />
+
+            <b>Bidder username: @Html.DisplayFor(model => model.Username)</b>
+
+            <br />
+            <b>LastDate of Bit:</b> @Html.DisplayFor(model => model.Auction_end)
+            <br />
+            <b>Current Date</b>@DateTime.Now
+
+            <br />
+            @if (Session["Email"] != null && (string)Session["Email"] != Model.Username)
+            {
+                <br />
+                <button class="btn btn-primary btn-lg "> @Html.ActionLink("Bid", "Bit", new { id = Model.id, name = (string)Session["Email"] })</button><br />
+            }
+            else if (Session["Email"] != null)
+            {
+                <br />
+                <b>You are currently the highest bidder</b><br />
+
+            }
+            else
+            {
+                <br /><b>Login to Bid</b><br />
+                <p><a href="@Url.Action("Login", "Account")" class="btn btn-primary btn-lg ">Login &raquo;</a></p>
+
+            }
+
+            <br />
+            <p>
+                <a href="@Url.Action("Todays_Auctions", "Auctions")">Go Back to list</a>
+            </p>
+        </div>
+
+
+    </div>
+    </body>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Web_Data_TermProject.Models.message>
+
+@{
+    ViewBag.Title = "notifications";
+}
+
+<body style="background-image: url('../../images/animated-lines-on-gray-background-element_4yuscfqex__F0000.png');">
+    <h2>notifications</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                BY
+            </th>
+            <th>
+                Message
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usern)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.message1)
+                </td>
+
+                <td>
+
+                    @Html.ActionLink("Delete", "Delete", new { mess = item.message1 })
+                </td>
+            </tr>
+        }
+    </table>
+
+</body>

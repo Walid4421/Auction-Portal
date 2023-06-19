@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Web_Data_TermProject.Models.itemInfo>
+
+@{
+    ViewBag.Title = "list";
+}
+
+<body style="background-image: url('../../images/animated-lines-on-gray-background-element_4yuscfqex__F0000.png');">
+    <h2 style="text-align:center"><b>Auctions</b></h2>
+
+    <div style="padding-left:10%;padding-right:10%;">
+        @using (Html.BeginForm("Todays_Auctions", "Auctions", FormMethod.Get))
+        {
+            @Html.TextBox("searching");<input type="submit" value="Search" />
+        }
+        <table class="table">
+            <tr>
+                <th></th>
+                <th></th>
+                <th>
+                    Make
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Model Year
+                </th>
+                <th>
+                    Type
+                </th>
+
+                <th></th>
+            </tr>
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="3" style="color:red">
+
+                        NO AUCTION RELATED TO SEARCH
+
+                    </td>
+                </tr>
+
+            }
+            else
+            {
+
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <th></th>
+                        <td>
+                            <img src="@Url.Content(item.item_img)" height="100" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ItemMake)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ItemName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Itemyear)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ItemType)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Details", "Auction_detail", new { id = item.itemid }) |
+                            @if ((string)Session["Email"] == "Admin")
+                            {
+                                @Html.ActionLink("Edit", "Admins", new { id = item.itemid })
+                            }
+                            |
+                            @if ((string)Session["Email"] == "Admin")
+                            {
+
+                                @Html.ActionLink("Delete", "Delete", new { id = item.itemid })
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+</body>

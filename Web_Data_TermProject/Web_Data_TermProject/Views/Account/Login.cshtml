@@ -1,0 +1,79 @@
+﻿@model Web_Data_TermProject.Models2.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<body style="background-image: url('../../images/bmw-m4-competition-black-cars-2020-5k-1920x1080-3118.jpg');">
+    <div class="loginp" , style="margin-left: 20%; margin-right: 50%; margin-bottom: 20%; margin-top: 10% ; color:white">
+        <fieldset>
+            <legend style="color:white">
+                User Login
+
+            </legend>
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+
+                <table>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Email, new { @style = "  float:left ; margin-right:20px;" })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @style = "float:left;margin-right:10px;margin-top:10px;" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Password, new { @style = "  float:left; margin-right:20px;" })
+                        </td>
+                        <td>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", @style = "float:left;margin-right:10px;margin-top:10px;" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td style="color:black">
+                                        <input type="submit" value="Login" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br />
+                                        <input type="button" value="Signup" onclick="location.href='@Url.Action("Register", "Account")' " style="color:black" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.ValidationMessage("Error", null, new { @class = "text text-danger" })
+                        </td>
+                    </tr>
+
+                </table>
+
+            }
+
+        </fieldset>
+
+    </div>
+
+</body>
