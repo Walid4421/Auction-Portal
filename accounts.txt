@@ -1,0 +1,8 @@
+	Email						Password
+
+	Admin						Admin123
+	walidhemati@gmail.com				Walid123
+	man15813qwe@mail.com				Walid123
+	nasib42o@gmail.com				Nasib123
+	Hasibmoy@gmail.com				Hasib123
+	Aqayee6@gmail.com				Sulaiman123
